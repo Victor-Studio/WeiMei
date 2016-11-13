@@ -1,0 +1,71 @@
+
+
+#ifdef __OBJC__
+
+#ifdef DEBUG
+
+//调试输出文本
+#define ZRLog(...) NSLog(__VA_ARGS__)
+
+#else
+
+//relase版本时，除去调试输出文本
+#define debugLog(...)
+
+#endif
+
+//首页的UIScrollView的顶部高度
+#define HomeScrollViewTopHeight 64
+#define ZRNavigationTopHeight HomeScrollViewTopHeight
+
+//定义颜色
+#define ZRColor(r,g,b) [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0]
+
+//设备版本号
+#define DeviceVersion [[UIDevice currentDevice].systemVersion floatValue]
+
+//iOS8及以上
+#define AboveIOS8 (DeviceVersion>=8.0)
+
+//iOS7及以上
+#define AboveIOS7 (DeviceVersion>=7.0)
+
+
+//默认软件的颜色风格
+#define MainColor ZRColor(247.0f, 247.0f, 247.0f)
+
+//默认软件的主要风格  红色
+#define MainColorRed ZRColor(201.0f, 9.0f, 9.0f)
+
+//导航栏底部的横线
+#define NavigationBottomColor MainColorRed//ZRColor(229.0f, 229.0f, 229.0f)
+
+#import "UIImage+ZRExtension.h"
+
+
+
+
+
+
+
+
+
+//腾讯API Key
+#define kTencentAPIKey @"1105252918"
+
+
+
+/**
+ * 抑制 clang警告，当调用PerformSelector方法时异常
+ **/
+#define SuppressPerformSelectorLeakWarning(method) \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+method;\
+_Pragma("clang diagnostic pop")
+
+
+
+
+
+#endif

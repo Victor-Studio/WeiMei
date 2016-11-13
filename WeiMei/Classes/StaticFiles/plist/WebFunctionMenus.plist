@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>icon</key>
+		<string>mainmenu_menu_share_btn</string>
+		<key>title</key>
+		<string>分享</string>
+		<key>controller</key>
+		<string>sharing</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>mainmenu_menu_intercalate_btn</string>
+		<key>title</key>
+		<string>设置</string>
+		<key>controller</key>
+		<string>ZRSettingController</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>mainmenu_menu_intercalate_btn</string>
+		<key>title</key>
+		<string>复制链接</string>
+		<key>controller</key>
+		<string>copy link</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>mainmenu_menu_refresh_btn</string>
+		<key>title</key>
+		<string>刷新页面</string>
+		<key>controller</key>
+		<string>refresh page</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>mainmenu_menu_append_btn</string>
+		<key>title</key>
+		<string>书签历史</string>
+		<key>controller</key>
+		<string>book mark</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>mainmenu_menu_intercalate_btn</string>
+		<key>title</key>
+		<string>源代码</string>
+		<key>controller</key>
+		<string>ZROriginalCodeController</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>mainmenu_menu_intercalate_btn</string>
+		<key>title</key>
+		<string>控制台</string>
+		<key>controller</key>
+		<string>ZRDebugConsoleController</string>
+	</dict>
+</array>
+</plist>
