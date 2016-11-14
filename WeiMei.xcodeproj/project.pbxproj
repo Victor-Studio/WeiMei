@@ -134,6 +134,7 @@
 		579CD8291CE703A100EC337F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD8261CE703A100EC337F /* Reachability.m */; };
 		579CD82A1CE703A100EC337F /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 579CD8281CE703A100EC337F /* TencentOpenApi_IOS_Bundle.bundle */; };
 		579CD82F1CE703F500EC337F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 579CD82E1CE703F500EC337F /* Main.storyboard */; };
+		57FED4191DD9F4EB003538D7 /* demo.c in Sources */ = {isa = PBXBuildFile; fileRef = 57FED4181DD9F4EB003538D7 /* demo.c */; };
 		D5C6BF281869065D274C0767 /* libPods-WeiMei.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17EEB6D4A65EE5CF68CEA0FA /* libPods-WeiMei.a */; };
 /* End PBXBuildFile section */
 
@@ -316,6 +317,7 @@
 		579CD8281CE703A100EC337F /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		579CD82C1CE703BC00EC337F /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		579CD82E1CE703F500EC337F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		57FED4181DD9F4EB003538D7 /* demo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = demo.c; sourceTree = "<group>"; };
 		B80E4CCA573DEAF9FE046522 /* Pods-WeiMei.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiMei.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiMei/Pods-WeiMei.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -741,6 +743,7 @@
 		579CD8231CE703A100EC337F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				57FED4171DD9F4DF003538D7 /* HTTP */,
 				579CD8241CE703A100EC337F /* Reachability */,
 				579CD8271CE703A100EC337F /* Tencent */,
 			);
@@ -762,6 +765,14 @@
 				579CD8281CE703A100EC337F /* TencentOpenApi_IOS_Bundle.bundle */,
 			);
 			path = Tencent;
+			sourceTree = "<group>";
+		};
+		57FED4171DD9F4DF003538D7 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				57FED4181DD9F4EB003538D7 /* demo.c */,
+			);
+			path = HTTP;
 			sourceTree = "<group>";
 		};
 		FAEEC34983E4203CC9CE29ED /* Frameworks */ = {
@@ -1000,6 +1011,7 @@
 				579CD7B81CE7034E00EC337F /* ZRAllMenusButton.m in Sources */,
 				579CD7AD1CE7034E00EC337F /* ZRSettingController.m in Sources */,
 				579CD7BC1CE7034E00EC337F /* ZRWebTabbar.m in Sources */,
+				57FED4191DD9F4EB003538D7 /* demo.c in Sources */,
 				579CD7B51CE7034E00EC337F /* ZRAllMenusModel.m in Sources */,
 				579CD7B61CE7034E00EC337F /* ZRPageManage.m in Sources */,
 				57342B901DD88F4B002E3E8B /* ZRWebView.m in Sources */,
@@ -1126,7 +1138,10 @@
 				INFOPLIST_FILE = WeiMei/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/include/curl/,
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lc++",
@@ -1161,20 +1176,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PODS_ROOT)/UmengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_5.0/**",
-					"$(PODS_ROOT)/UmengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/",
-					"$(PODS_ROOT)/UmengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/Wechat/**",
-					"$(PODS_ROOT)/UmengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/AlipayShare/**",
-					"$(PODS_ROOT)/UmengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/SinaSSO/**",
-					"$(PODS_ROOT)/UmengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/Line/**",
-					"$(PODS_ROOT)/UmengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/Whatsapp/**",
-					"$(PODS_ROOT)/UmengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/Instagram/**",
-					"$(PODS_ROOT)/UmengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/Tumblr/**",
-					"$(PODS_ROOT)/UmengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/LaiWang/**",
-					"$(PODS_ROOT)/UmengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/Twitter/**",
-					"$(PODS_ROOT)/UmengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/Facebook/**",
-					"\"$PODS_CONFIGURATION_BUILD_DIR/FMDB\"",
-					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+					/usr/include/curl/,
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

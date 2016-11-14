@@ -17,4 +17,6 @@
 
 @interface ZRWKWebView : WKWebView
 
+@property (nonatomic, strong) UIView *translateResultView;
+
 @end
