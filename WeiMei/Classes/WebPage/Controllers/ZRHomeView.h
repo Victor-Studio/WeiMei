@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZRHomeView : UIViewController<UIScrollViewDelegate>
+@interface ZRHomeView : UIViewController/*<UIScrollViewDelegate>*/
 
 @end

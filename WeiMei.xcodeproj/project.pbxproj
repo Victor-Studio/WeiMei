@@ -922,7 +922,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		01408F9EC22923868C71DD58 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -930,14 +930,14 @@
 			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeiMei/Pods-WeiMei-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		526DD0514474F9673CB2528B /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -945,7 +945,7 @@
 			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeiMei/Pods-WeiMei-resources.sh\"\n";
 			showEnvVarsInLog = 0;

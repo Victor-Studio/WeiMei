@@ -160,16 +160,16 @@
         CGFloat avatarW = amW * 1.8;
         CGFloat avatarH = avatarW;
         CGFloat avatarX = marginAMLeft * 0.5;
-        CGFloat avatarY = viewHeight - dHeight2 * 1.32;
-        if([ZRCommonUtils iPhone4:viewWidth heigh:viewHeight]){
-            avatarY = viewHeight - dHeight2 * 1.28;
-        } else if([ZRCommonUtils iPhone5:viewWidth heigh:viewHeight]){
-            avatarY = viewHeight - dHeight2 * 1.25;
-        } else if([ZRCommonUtils iPhone6:viewWidth heigh:viewHeight]){
-            avatarY = viewHeight - dHeight2 * 1.15;
-        } else if([ZRCommonUtils iPhone6plus:viewWidth heigh:viewHeight]){
-            avatarY = viewHeight - dHeight2 * 1.18;
-        }
+        CGFloat avatarY = viewHeight - dHeight2 - avatarW / 2;
+//        if([ZRCommonUtils iPhone4:viewWidth heigh:viewHeight]){
+//            avatarY = viewHeight - dHeight2 * 1.28;
+//        } else if([ZRCommonUtils iPhone5:viewWidth heigh:viewHeight]){
+//            avatarY = viewHeight - dHeight2 * 1.25;
+//        } else if([ZRCommonUtils iPhone6:viewWidth heigh:viewHeight]){
+//            avatarY = viewHeight - dHeight2 * 1.15;
+//        } else if([ZRCommonUtils iPhone6plus:viewWidth heigh:viewHeight]){
+//            avatarY = viewHeight - dHeight2 * 1.18;
+//        }
         UIButton *avatar = [[UIButton alloc] initWithFrame:CGRectMake(avatarX, avatarY, avatarW, avatarH)];
         [avatar.layer setBorderWidth:1.0];
         [avatar.layer setMasksToBounds:YES];

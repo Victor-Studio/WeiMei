@@ -20,6 +20,8 @@
 
 //定义颜色
 #define ZRColor(r,g,b) [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0]
+#define RGB(colorRgb,__a)  [UIColor colorWithRed:((colorRgb & 0xFF0000) >> 16)/255.0 green:((colorRgb & 0xFF00) >> 8)/255.0 blue:((colorRgb & 0xFF)/255.0) alpha:__a]
+#define kRGB(colorRgb) RGB(colorRgb, 1.0)
 
 //设备版本号
 #define DeviceVersion [[UIDevice currentDevice].systemVersion floatValue]
@@ -31,7 +33,7 @@
 #define AboveIOS7 (DeviceVersion>=7.0)
 
 
-//默认软件的颜色风格
+//默认软件的颜色风格  灰色背景
 #define MainColor ZRColor(247.0f, 247.0f, 247.0f)
 
 //默认软件的主要风格  红色

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  HomeViewController.h
 //  WeiMeiBrowser
 //
 //  Created by Victor Zhang on 15/12/27.

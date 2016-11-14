@@ -24,7 +24,8 @@
 
 - (void)translate:(UIMenuItem *)menuItem
 {
-    
+    NSString *selection = [self stringByEvaluatingJavaScriptFromString:@"window.getSelection().toString()"];
+    printf("title=%s", [selection UTF8String]);
 }
 
 - (void)copying:(UIMenuItem *)menuItem
@@ -54,7 +55,7 @@
     if (self) {
         UIMenuItem *translation = [[UIMenuItem alloc] initWithTitle:@"翻译"action:@selector(translate:)];
         UIMenuItem *copying = [[UIMenuItem alloc] initWithTitle:@"复制"action:@selector(copying:)];
-        UIMenuController *menu =[UIMenuController sharedMenuController];
+        UIMenuController *menu = [UIMenuController sharedMenuController];
         [menu setMenuItems:[NSArray arrayWithObjects:translation, copying, nil]];
     }
     return self;
@@ -62,7 +63,10 @@
 
 - (void)translate:(UIMenuItem *)menuItem
 {
-    
+    [self evaluateJavaScript:@"window.getSelection().toString()" completionHandler:^(id _Nullable value, NSError * _Nullable error) {
+        printf("title=%s", [value UTF8String]);
+    }];
+
 }
 
 - (void)copying:(UIMenuItem *)menuItem

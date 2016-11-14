@@ -12,8 +12,8 @@
 
 - (instancetype)init{
     if(self = [super init]){
-        self.numberOfPages = 3;
-        self.currentPage = 1;
+        self.numberOfPages = 2;
+        self.currentPage = 0;
         self.currentPageIndicatorTintColor = MainColorRed;
         self.pageIndicatorTintColor = MainColor;
     }

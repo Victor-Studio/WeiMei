@@ -87,8 +87,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"页面管理";
-    
     [self configBasis];
 //    [self addBottomToolBar];
     [self tableView];
@@ -99,6 +97,13 @@
 - (void)configBasis
 {
     self.view.backgroundColor = [UIColor clearColor];
+    
+    UIButton *btnTitle = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+    [btnTitle setTitle:@"页面管理" forState:UIControlStateNormal];
+    btnTitle.titleLabel.textColor = [UIColor whiteColor];
+    btnTitle.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.navigationItem.titleView = btnTitle;
+    
     if (AboveIOS8) {
         //添加一个背景图片
         UIImageView *bgImage = [[UIImageView alloc] initWithImage:self.bgImage];
@@ -182,15 +187,15 @@
     CGFloat y = margin * 2;
     //显示的截图
     CGFloat w = timg.size.width - y;
-    CGFloat h = timg.size.height - y - 10;
+    CGFloat h = timg.size.height - y - 20;
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(x, x, w, h)];
     [imgView setImage:timg];
-    imgView.layer.borderColor = [UIColor grayColor].CGColor;
+    imgView.layer.borderColor = kRGB(0xdedede).CGColor;
     imgView.layer.borderWidth = 0.5;
     imgView.userInteractionEnabled = YES;
     
     //上面的navBar
-    UILabel *topLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, w, 30)];
+    UILabel *topLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, w, 36)];
     [topLab setBackgroundColor:[UIColor whiteColor]];
     [imgView addSubview:topLab];
     
@@ -211,7 +216,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.bgImage.size.height;
+    return self.bgImage.size.height - 35;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

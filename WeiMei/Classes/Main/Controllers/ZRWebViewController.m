@@ -37,6 +37,7 @@
 UIScrollViewDelegate,
 UIActionSheetDelegate,
 WKNavigationDelegate,
+UISearchBarDelegate,
 //ZRWebNavigationDelete,
 ZRWebTabbarDelegate,
 ZRAllMenusDelegate>
@@ -64,7 +65,7 @@ ZRAllMenusDelegate>
 /* 滚动记录值 */
 @property (nonatomic,assign) CGFloat scrollingValue;
 
-@property (nonatomic, strong) UITextField *titleTextField;
+@property (nonatomic, strong) UISearchBar *titleSearchBar;
 
 /* 书签和历史记录控制器 */
 @property (nonatomic,strong) ZRBookmarkController *bookmarkController;
@@ -72,6 +73,10 @@ ZRAllMenusDelegate>
 
 /* 圆圈进度条 */
 @property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
+
+//搜索背景
+@property (nonatomic, strong) UIView *searchbarBackgroundView;
+
 @end
 
 /* 单例对象  初始化nil */
@@ -97,8 +102,7 @@ static ZRWebViewController *webViewController = nil;
 {
     _currentURL = currentURL;
     
-    self.titleTextField.text = currentURL;
-    self.navigationItem.title = currentURL;
+    self.titleSearchBar.text = currentURL;
 }
 
 //停止IndicatorView的圆圈
@@ -196,12 +200,11 @@ static ZRWebViewController *webViewController = nil;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 
     //中间的view
-    UITextField *titleTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, kWebViewWidth - 80, 44)];
-    titleTextField.font = [UIFont systemFontOfSize:15];
-    titleTextField.textAlignment = NSTextAlignmentCenter;
-    titleTextField.textColor = [UIColor whiteColor];
-    self.navigationItem.titleView = titleTextField;
-    self.titleTextField = titleTextField;
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, kWebViewWidth - 80, 44)];
+    searchBar.tintColor = MainColorRed;
+    searchBar.delegate = self;
+    self.navigationItem.titleView = searchBar;
+    self.titleSearchBar = searchBar;
     
     //右边按钮
     UIImage *menuImage = [UIImage imageNamed:@"cc_webview_menu"];
@@ -212,6 +215,43 @@ static ZRWebViewController *webViewController = nil;
     [menuBtn setImage:menuImage forState:UIControlStateNormal];
     [menuBtn addTarget:self action:@selector(menuBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuBtn];
+}
+
+#pragma mark - UISearchBarDelegate
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.searchbarBackgroundView removeFromSuperview];
+    [self.titleSearchBar resignFirstResponder];
+    
+    NSString *urlstr = [searchBar.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if (urlstr.length <= 0) {
+        return;
+    }
+    
+    if (![urlstr hasPrefix:@"http://"] && ![urlstr hasPrefix:@"https://"] && ![urlstr hasPrefix:@"ftp://"]) {
+        urlstr = [NSString stringWithFormat:@"http://%@", urlstr];
+    }
+    
+    searchBar.text = urlstr;
+    [self refreshWebViewWithUrl:urlstr];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    CGRect rect = self.view.frame;
+    rect.origin.y = 0;
+    UIView *translucentView = [[UIView alloc] initWithFrame:rect];
+    translucentView.backgroundColor = [UIColor blackColor];
+    translucentView.alpha = 0.3;
+    [translucentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeSearchBackground:)]];
+    [self.view addSubview:translucentView];
+    self.searchbarBackgroundView = translucentView;
+}
+
+- (void)removeSearchBackground:(UIView *)view
+{
+    [self.searchbarBackgroundView removeFromSuperview];
+    [self.titleSearchBar resignFirstResponder];
 }
 
 /*
@@ -261,7 +301,7 @@ static ZRWebViewController *webViewController = nil;
 {
     // 进度条
     UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0)];
-    progressView.progressTintColor = [UIColor yellowColor];//ZRColor(229.0f, 57.0f, 225.0f);
+    progressView.progressTintColor = [UIColor redColor];//ZRColor(229.0f, 57.0f, 225.0f);
     progressView.trackTintColor = [UIColor clearColor];
     [self.view addSubview:progressView];
     self.progressView = progressView;
@@ -390,6 +430,7 @@ static ZRWebViewController *webViewController = nil;
                 [self.progressView setProgress:0 animated:NO];
             }else {
                 self.progressView.hidden = NO;
+                [self setProgressColorBy:newprogress];
                 [self.progressView setProgress:newprogress animated:YES];
             }
         }
@@ -494,8 +535,33 @@ static ZRWebViewController *webViewController = nil;
         if (newP > 0.95) {
             newP = 0.95;
         }
+
+        [self setProgressColorBy:newP];
+        
         [self.progressView setProgress:newP animated:YES];
     }
+}
+
+- (void)setProgressColorBy:(float)progress
+{
+//    float portion = 0.1428571;
+//    if (progress > portion * 7) {
+//        self.progressView.progressTintColor = [UIColor purpleColor];
+//    } else if (progress > portion * 6) {
+//        self.progressView.progressTintColor = [UIColor blueColor];
+//    } else if (progress > portion * 5) {
+//        self.progressView.progressTintColor = [UIColor cyanColor];
+//    } else if (progress > portion * 4) {
+//        self.progressView.progressTintColor = [UIColor greenColor];
+//    } else if (progress > portion * 3) {
+//        self.progressView.progressTintColor = [UIColor yellowColor];
+//    } else if (progress > portion * 2) {
+        self.progressView.progressTintColor = [UIColor orangeColor];
+//    } else if (progress > portion * 1) {
+//        self.progressView.progressTintColor = [UIColor redColor];
+//    } else {
+//        self.progressView.progressTintColor = [UIColor redColor];
+//    }
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
@@ -758,7 +824,7 @@ static ZRWebViewController *webViewController = nil;
         [[[ZRHistoryPage alloc] init] add:title withUrl:reqUrl];
         self.isAddHistory = true;
     }
-    self.navigationItem.title = title;
+    self.titleSearchBar.text = reqUrl;
 //    self.zrNavigation.titleLableUrl = reqUrl;
 //    self.zrNavigation.titleLabelText = title;
 }

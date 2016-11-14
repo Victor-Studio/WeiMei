@@ -11,14 +11,16 @@
 #import "ZRHomePageControl.h"
 #import "ZRQRCodeScanController.h"
 #import "ZRSearchHitsViewController.h"
-#import "ZRWeatherController.h"
+//#import "ZRWeatherController.h"
 
 @interface ZRHomeView ()
+
 @property (nonatomic,strong) ZRHomeScrollView *homeScrollView;
 
-@property (nonatomic,strong) ZRHomePageControl *homePageControl;
+//@property (nonatomic,strong) ZRHomePageControl *homePageControl;
 
 @property (nonatomic, strong) UIView *topSearchBan;
+
 @end
 
 
@@ -32,14 +34,28 @@
     [self addHomeScroll];
     
     //2.添加页码
-    [self addPageControl];
+//    [self addPageControl];
 
     //3.设置基本配置
-    [self configBasic];
+//    [self configBasic];
     
     
     //4.添加一个顶部搜索框
     [self configTopSearch];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    UIApplication *shared = [UIApplication sharedApplication];
+    if (shared.statusBarHidden) {
+        [shared setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    }
+    
+    if (shared.statusBarStyle == UIStatusBarStyleLightContent) {
+        [shared setStatusBarStyle:UIStatusBarStyleDefault];
+    }
 }
 
 #pragma mark - 1.添加控制器
@@ -51,61 +67,62 @@
 }
  
 #pragma mark - 2.添加页码
-- (void)addPageControl{
-    ZRHomePageControl *page = [[ZRHomePageControl alloc]  init];
-    CGFloat h = 10;
-    CGFloat y = self.view.frame.size.height - h;
-    CGFloat w = self.view.frame.size.width;
-    page.frame = CGRectMake(0, y, w, h);
-    [self.view addSubview:page];
-    self.homePageControl = page;
-}
+//- (void)addPageControl{
+//    ZRHomePageControl *page = [[ZRHomePageControl alloc]  init];
+//    CGFloat h = 10;
+//    CGFloat y = self.view.frame.size.height - h;
+//    CGFloat w = self.view.frame.size.width;
+//    page.frame = CGRectMake(0, y, w, h);
+//    [self.view addSubview:page];
+//    self.homePageControl = page;
+//}
 
 #pragma mark - 3.设置基本配置
-- (void)configBasic
-{
-    self.homeScrollView.delegate = self;
-    self.homeScrollView.contentOffset = CGPointMake(self.view.frame.size.width, 0);
-}
+//- (void)configBasic
+//{
+//    self.homeScrollView.delegate = self;
+//    self.homeScrollView.contentOffset = CGPointMake(self.view.frame.size.width, 0);
+//}
 
 #pragma mark - UIScrollViewDelegate的代理事件
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGFloat x = scrollView.contentOffset.x; 
-    CGFloat width = self.view.frame.size.width;
-    CGFloat width2 = width * 0.5;
-    CGFloat width3 = width * 1.5;
-    if (x <= width2) {
-        self.homePageControl.currentPage = 0;
-        
-        //表示已经加载了一次
-        [[ZRWeatherModel defaultWeather] setIsFisrtLoad:YES];
-        
-        //让顶部搜索框隐藏
-        [[UIApplication sharedApplication] setStatusBarHidden:YES];
-        [UIView animateWithDuration:1.0 animations:^{
-            [self.topSearchBan setAlpha:0];
-        } completion:^(BOOL finished) {
-            if (finished) {
-                self.topSearchBan.hidden = YES;
-            }
-        }];
-    } else if (x > width2 && x <= width3){
-        self.homePageControl.currentPage = 1;
-        
-        //让顶部搜索框显示
-        [[UIApplication sharedApplication] setStatusBarHidden:NO];
-        [UIView animateWithDuration:1.0 animations:^{
-            [self.topSearchBan setAlpha:1];
-        } completion:^(BOOL finished) {
-            if (finished) {
-                self.topSearchBan.hidden = NO;
-            }
-        }];
-    } else {
-        self.homePageControl.currentPage = 2;
-    }
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    CGFloat x = scrollView.contentOffset.x; 
+//    CGFloat width = self.view.frame.size.width;
+//    CGFloat width2 = width * 0.5;
+//    CGFloat width3 = width * 1.5;
+//    if (x <= width2) {
+//        self.homePageControl.currentPage = 0;
+//        
+//        //表示已经加载了一次
+////        [[ZRWeatherModel defaultWeather] setIsFisrtLoad:YES];
+//        
+//        //让顶部搜索框隐藏
+//        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+//        
+//        [UIView animateWithDuration:1.0 animations:^{
+//            [self.topSearchBan setAlpha:0];
+//        } completion:^(BOOL finished) {
+//            if (finished) {
+//                self.topSearchBan.hidden = YES;
+//            }
+//        }];
+//    } else if (x > width2 && x <= width3){
+//        self.homePageControl.currentPage = 1;
+//        
+//        //让顶部搜索框显示
+//        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+//        [UIView animateWithDuration:1.0 animations:^{
+//            [self.topSearchBan setAlpha:1];
+//        } completion:^(BOOL finished) {
+//            if (finished) {
+//                self.topSearchBan.hidden = NO;
+//            }
+//        }];
+//    } else {
+//        self.homePageControl.currentPage = 0;
+//    }
+//}
 
 #pragma mark - 4.添加一个顶部搜索框
 - (void)configTopSearch
@@ -125,12 +142,12 @@
     [topSearch addSubview:bottomLabel];
     
     //创建搜索框 UITextField遮挡物
-    CGFloat statusH = [UIApplication sharedApplication].statusBarFrame.size.height + 6;
+    CGFloat statusH = [UIApplication sharedApplication].statusBarFrame.size.height + 4;
     CGRect rect = topSearch.frame;
     CGFloat marginBar = 5;
     rect.origin.x = marginBar;
     rect.origin.y = statusH;
-    rect.size.height = 27;
+    rect.size.height = 35;
     rect.size.width = topSearch.frame.size.width - marginBar * 2;
     UIView *searView = [[UIView alloc] initWithFrame:rect];
     [searView setBackgroundColor:MainColor];

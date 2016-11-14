@@ -1,3 +1,11 @@
+//
+//  HomeViewController.m
+//  WeiMeiBrowser
+//
+//  Created by Victor Zhang on 15/12/27.
+//  Copyright (c) 2015年 XiaoRuiGeGeStudio. All rights reserved.
+//
+
 
 #import "HomeViewController.h"
 #import "ZRHomeView.h"
