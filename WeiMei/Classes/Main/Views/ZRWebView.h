@@ -9,6 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 
+#define kResultingPlaneAnimationDuration 0.3f
+
+@protocol ZRWebViewDelegate <NSObject>
+
+- (void)showTranslationPlane;
+
+- (void)hideTranslationPlane;
+
+@end
+
+
 @interface ZRWebView : UIWebView
 
 @end
@@ -16,6 +27,10 @@
 
 
 @interface ZRWKWebView : WKWebView
+
+@property (nonatomic, strong) UIView *webViewSuperView;
+
+@property (nonatomic, weak) id<ZRWebViewDelegate> translationDelegate;
 
 @property (nonatomic, strong) UIView *translateResultView;
 

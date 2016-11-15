@@ -38,6 +38,7 @@ UIScrollViewDelegate,
 UIActionSheetDelegate,
 WKNavigationDelegate,
 UISearchBarDelegate,
+ZRWebViewDelegate,
 //ZRWebNavigationDelete,
 ZRWebTabbarDelegate,
 ZRAllMenusDelegate>
@@ -145,6 +146,7 @@ static ZRWebViewController *webViewController = nil;
         webViewController.title = title;
 
         ZRWebNavigationController *nav = [[ZRWebNavigationController alloc] initWithRootViewController:webViewController];
+        nav.modalPresentationStyle = UIModalPresentationPageSheet;
         
         //跳转控制器
         [[[[UIApplication sharedApplication].windows objectAtIndex:0] rootViewController] presentViewController:nav animated:NO completion:nil];
@@ -319,6 +321,8 @@ static ZRWebViewController *webViewController = nil;
         wkWebView.frame = newRect;
         wkWebView.navigationDelegate = weakSelf;
         wkWebView.scrollView.delegate = weakSelf;
+        wkWebView.translationDelegate = self;
+        wkWebView.webViewSuperView = self.view;
         [self.view insertSubview:wkWebView belowSubview:progressView];
         
         [wkWebView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
@@ -843,6 +847,25 @@ static ZRWebViewController *webViewController = nil;
         if(self.webView.canGoForward)
             [self.tabbar.go setEnabled:YES];
     }
+}
+
+#pragma mark - ZRWebViewDelegate
+- (void)showTranslationPlane
+{
+    [UIView animateWithDuration:kResultingPlaneAnimationDuration animations:^{
+        CGRect rect = self.tabbar.frame;
+        rect.origin.y = kWebViewHeight;
+        self.tabbar.frame = rect;
+    }];
+}
+
+- (void)hideTranslationPlane
+{
+    [UIView animateWithDuration:kResultingPlaneAnimationDuration animations:^{
+        CGRect rect = self.tabbar.frame;
+        rect.origin.y = kWebViewHeight - rect.size.height - 64;
+        self.tabbar.frame = rect;
+    }];
 }
 
 @end

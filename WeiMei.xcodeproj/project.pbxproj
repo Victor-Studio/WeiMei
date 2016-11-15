@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		572C54711DDB431500F227CF /* ZRYouDaoDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 572C54701DDB431500F227CF /* ZRYouDaoDict.m */; };
 		57342B901DD88F4B002E3E8B /* ZRWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57342B8F1DD88F4B002E3E8B /* ZRWebView.m */; };
 		578915B01CFFD3B90024C26A /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578915AF1CFFD3B90024C26A /* TencentOpenAPI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		578915B21D0078E70024C26A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578915B11D0078E70024C26A /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -134,13 +135,14 @@
 		579CD8291CE703A100EC337F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD8261CE703A100EC337F /* Reachability.m */; };
 		579CD82A1CE703A100EC337F /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 579CD8281CE703A100EC337F /* TencentOpenApi_IOS_Bundle.bundle */; };
 		579CD82F1CE703F500EC337F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 579CD82E1CE703F500EC337F /* Main.storyboard */; };
-		57FED4191DD9F4EB003538D7 /* demo.c in Sources */ = {isa = PBXBuildFile; fileRef = 57FED4181DD9F4EB003538D7 /* demo.c */; };
 		D5C6BF281869065D274C0767 /* libPods-WeiMei.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17EEB6D4A65EE5CF68CEA0FA /* libPods-WeiMei.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		17EEB6D4A65EE5CF68CEA0FA /* libPods-WeiMei.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeiMei.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		569C640F51C7F8470FBEC4C7 /* Pods-WeiMei.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiMei.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeiMei/Pods-WeiMei.release.xcconfig"; sourceTree = "<group>"; };
+		572C546F1DDB431500F227CF /* ZRYouDaoDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRYouDaoDict.h; sourceTree = "<group>"; };
+		572C54701DDB431500F227CF /* ZRYouDaoDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRYouDaoDict.m; sourceTree = "<group>"; };
 		57342B8E1DD88F4B002E3E8B /* ZRWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRWebView.h; sourceTree = "<group>"; };
 		57342B8F1DD88F4B002E3E8B /* ZRWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRWebView.m; sourceTree = "<group>"; };
 		578915AF1CFFD3B90024C26A /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
@@ -317,7 +319,6 @@
 		579CD8281CE703A100EC337F /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		579CD82C1CE703BC00EC337F /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		579CD82E1CE703F500EC337F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		57FED4181DD9F4EB003538D7 /* demo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = demo.c; sourceTree = "<group>"; };
 		B80E4CCA573DEAF9FE046522 /* Pods-WeiMei.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiMei.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiMei/Pods-WeiMei.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -342,6 +343,15 @@
 				569C640F51C7F8470FBEC4C7 /* Pods-WeiMei.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		572C546E1DDB430300F227CF /* YouDaoDict */ = {
+			isa = PBXGroup;
+			children = (
+				572C546F1DDB431500F227CF /* ZRYouDaoDict.h */,
+				572C54701DDB431500F227CF /* ZRYouDaoDict.m */,
+			);
+			path = YouDaoDict;
 			sourceTree = "<group>";
 		};
 		579CD6CA1CE7030000EC337F = {
@@ -743,7 +753,7 @@
 		579CD8231CE703A100EC337F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				57FED4171DD9F4DF003538D7 /* HTTP */,
+				572C546E1DDB430300F227CF /* YouDaoDict */,
 				579CD8241CE703A100EC337F /* Reachability */,
 				579CD8271CE703A100EC337F /* Tencent */,
 			);
@@ -765,14 +775,6 @@
 				579CD8281CE703A100EC337F /* TencentOpenApi_IOS_Bundle.bundle */,
 			);
 			path = Tencent;
-			sourceTree = "<group>";
-		};
-		57FED4171DD9F4DF003538D7 /* HTTP */ = {
-			isa = PBXGroup;
-			children = (
-				57FED4181DD9F4EB003538D7 /* demo.c */,
-			);
-			path = HTTP;
 			sourceTree = "<group>";
 		};
 		FAEEC34983E4203CC9CE29ED /* Frameworks */ = {
@@ -993,6 +995,7 @@
 				579CD7C81CE7034E00EC337F /* ZRRegularExpression.m in Sources */,
 				579CD7AC1CE7034E00EC337F /* ZROriginalCodeController.m in Sources */,
 				579CD7BA1CE7034E00EC337F /* ZRWebButton.m in Sources */,
+				572C54711DDB431500F227CF /* ZRYouDaoDict.m in Sources */,
 				579CD7B41CE7034E00EC337F /* ZRFeatures.m in Sources */,
 				579CD7BF1CE7034E00EC337F /* UIImage+ZRExtension.m in Sources */,
 				579CD7AF1CE7034E00EC337F /* ZRBookmarkNavigation.m in Sources */,
@@ -1011,7 +1014,6 @@
 				579CD7B81CE7034E00EC337F /* ZRAllMenusButton.m in Sources */,
 				579CD7AD1CE7034E00EC337F /* ZRSettingController.m in Sources */,
 				579CD7BC1CE7034E00EC337F /* ZRWebTabbar.m in Sources */,
-				57FED4191DD9F4EB003538D7 /* demo.c in Sources */,
 				579CD7B51CE7034E00EC337F /* ZRAllMenusModel.m in Sources */,
 				579CD7B61CE7034E00EC337F /* ZRPageManage.m in Sources */,
 				57342B901DD88F4B002E3E8B /* ZRWebView.m in Sources */,
@@ -1138,10 +1140,7 @@
 				INFOPLIST_FILE = WeiMei/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/usr/include/curl/,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lc++",
@@ -1174,10 +1173,7 @@
 				INFOPLIST_FILE = WeiMei/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/usr/include/curl/,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lc++",
