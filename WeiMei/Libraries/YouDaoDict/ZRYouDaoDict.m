@@ -9,7 +9,7 @@
 
 #import "ZRYouDaoDict.h"
 
-#define YOUDAOFANYI(queryText) [NSString stringWithFormat:@"http://fanyi.youdao.com/openapi.do?keyfrom=weimeibrowser&key=543890898&type=data&doctype=json&version=1.1&q=%@", queryText]
+#define YOUDAOFANYI(queryText) [NSString stringWithFormat:@"http://fanyi.youdao.com/openapi.do?keyfrom=weimeibrowser&key=543890898&type=data&doctype=json&version=1.1&q=%@", CFURLCreateStringByAddingPercentEscapes( kCFAllocatorDefault, (CFStringRef)queryText, NULL, NULL, kCFStringEncodingUTF8)]
 
 @implementation ZRYouDaoBasicModel
 
@@ -35,14 +35,14 @@
 
 @implementation ZRYouDaoDict
 
-- (void)translate:(NSString *)queryText callback:(void(^)(ZRYouDaoModel *ydModel))callback
+- (void)translate:(NSString *)queryText
 {
     if (queryText.length <= 0) {
         return;
     }
     
-//    dispatch_queue_t getInterpretation_queue = dispatch_queue_create("com.victor.weimei.getinterpretation", NULL);
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_queue_t getInterpretation_queue = dispatch_queue_create("com.victor.weimei.getinterpretation", NULL);
+    dispatch_async(getInterpretation_queue, ^{
         NSURL *url = [NSURL URLWithString:YOUDAOFANYI(queryText)];
         NSURLSession *session = [NSURLSession sharedSession];
         NSURLSessionDataTask * task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -68,8 +68,8 @@
             model.translation = dict[@"translation"];
             model.web = dict[@"web"];
            
-            if (callback) {
-                callback(model);
+            if ([self.delegate respondsToSelector:@selector(translationResult:selectionText:)]) {
+                [self.delegate translationResult:model selectionText:queryText];
             }
         }];
         [task resume];

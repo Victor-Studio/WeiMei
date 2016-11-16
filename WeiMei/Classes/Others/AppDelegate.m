@@ -9,7 +9,7 @@
 #import "AppDelegate.h" 
 #import "ZRAlertController.h"
 #import <TencentOpenAPI/TencentOAuth.h>
-
+#import "BDSSpeechSynthesizer.h"
 
 @interface AppDelegate ()
  
@@ -19,25 +19,46 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-     
     
-    //友盟社会化分享组件
-    [self configUMShare];
-     
+    
+    [self configBDSSpeech];
+    
     //配置推送功能
     [self configPushNotifications:launchOptions];
     
     return YES;
 }
 
-/**
- * 配置友盟分享组件
- */
-- (void)configUMShare
+//百度语音合成
+- (void)configBDSSpeech
 {
-//    [UMSocialData setAppKey:@"56e6368ce0f55a7ad10008f4"];
-//    [UMSocialQQHandler setQQWithAppId:@"1105252918" appKey:@"5P04OpVhQxwQWWdF" url:@"https://itunes.apple.com/cn/app/wei-mei-liu-lan-qi/id1067649034?l=en&mt=8"];
-//    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"629936339" secret:@"" RedirectURL:@"https://itunes.apple.com/cn/app/wei-mei-liu-lan-qi/id1067649034?l=en&mt=8"]; 
+    // 在线相关设置
+    [[BDSSpeechSynthesizer sharedInstance] setApiKey:@"2YVELTHw6TVYlPoYwQYs7EzZ" withSecretKey:@"f70b4d485a1bf050ea4c71e2e08dcdb3"];
+    [[BDSSpeechSynthesizer sharedInstance] setSynthesizerParam:[NSNumber numberWithFloat:10.0] forKey:BDS_SYNTHESIZER_PARAM_ONLINE_REQUEST_TIMEOUT];
+    
+    // 离线相关设置
+    NSError* ret=[[BDSSpeechSynthesizer sharedInstance] loadOfflineEngine:@"English_Text.dat"
+                                                           speechDataPath:@"English_Speech_Female.dat"
+                                                          licenseFilePath:@ "offline_engine_tmp_license.dat"
+                                                              withAppCode: @"8906336"
+                  ];
+    if( ret != nil) {
+        /*错误*/
+        NSLog(@"百度语音合成相关数据错误！ error = %@", ret);
+    }
+
+    
+    //女生
+    [[BDSSpeechSynthesizer sharedInstance] setSynthesizerParam:[NSNumber numberWithInt:BDS_SYNTHESIZER_SPEAKER_FEMALE] forKey:BDS_SYNTHESIZER_PARAM_SPEAKER];
+    
+    //中级音量
+    [[BDSSpeechSynthesizer sharedInstance] setSynthesizerParam:[NSNumber numberWithInt:5] forKey:BDS_SYNTHESIZER_PARAM_VOLUME];
+    
+    //中速
+    [[BDSSpeechSynthesizer sharedInstance] setSynthesizerParam:[NSNumber numberWithInt:5] forKey:BDS_SYNTHESIZER_PARAM_SPEED];
+
+    //中调
+    [[BDSSpeechSynthesizer sharedInstance] setSynthesizerParam:[NSNumber numberWithInt:5] forKey:BDS_SYNTHESIZER_PARAM_PITCH];
 }
 
 /**

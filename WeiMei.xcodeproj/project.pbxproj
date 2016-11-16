@@ -9,6 +9,20 @@
 /* Begin PBXBuildFile section */
 		572C54711DDB431500F227CF /* ZRYouDaoDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 572C54701DDB431500F227CF /* ZRYouDaoDict.m */; };
 		57342B901DD88F4B002E3E8B /* ZRWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57342B8F1DD88F4B002E3E8B /* ZRWebView.m */; };
+		573E61281DDCA919006CC5A3 /* libetts_device_simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 573E61271DDCA919006CC5A3 /* libetts_device_simulator.a */; };
+		573E612A1DDCA995006CC5A3 /* English_Speech_Female.dat in Resources */ = {isa = PBXBuildFile; fileRef = 573E61291DDCA995006CC5A3 /* English_Speech_Female.dat */; };
+		573E612C1DDCA9D4006CC5A3 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 573E612B1DDCA9D4006CC5A3 /* libz.1.2.5.tbd */; };
+		573E612E1DDCA9E6006CC5A3 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 573E612D1DDCA9E6006CC5A3 /* libc++.tbd */; };
+		573E61301DDCAA00006CC5A3 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 573E612F1DDCAA00006CC5A3 /* libstdc++.6.0.9.tbd */; };
+		573E61321DDCAA0B006CC5A3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573E61311DDCAA0B006CC5A3 /* SystemConfiguration.framework */; };
+		573E61341DDCAA14006CC5A3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573E61331DDCAA14006CC5A3 /* CoreTelephony.framework */; };
+		573E61361DDCAA24006CC5A3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573E61351DDCAA24006CC5A3 /* AVFoundation.framework */; };
+		573E61381DDCAA2B006CC5A3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573E61371DDCAA2B006CC5A3 /* AudioToolbox.framework */; };
+		573E613A1DDCAA5F006CC5A3 /* offline_engine_tmp_license.dat in Resources */ = {isa = PBXBuildFile; fileRef = 573E61391DDCAA5F006CC5A3 /* offline_engine_tmp_license.dat */; };
+		573E613D1DDCAA9B006CC5A3 /* English_Speech_Male.dat in Resources */ = {isa = PBXBuildFile; fileRef = 573E613B1DDCAA9B006CC5A3 /* English_Speech_Male.dat */; };
+		573E613E1DDCAA9B006CC5A3 /* English_Text.dat in Resources */ = {isa = PBXBuildFile; fileRef = 573E613C1DDCAA9B006CC5A3 /* English_Text.dat */; };
+		573E61401DDCAE86006CC5A3 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 573E613F1DDCAE86006CC5A3 /* libiconv.tbd */; };
+		573E61441DDCBBC3006CC5A3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 573E61431DDCBBC3006CC5A3 /* Launch Screen.storyboard */; };
 		578915B01CFFD3B90024C26A /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578915AF1CFFD3B90024C26A /* TencentOpenAPI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		578915B21D0078E70024C26A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578915B11D0078E70024C26A /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		579CD6D81CE7030000EC337F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD6D71CE7030000EC337F /* main.m */; };
@@ -145,6 +159,26 @@
 		572C54701DDB431500F227CF /* ZRYouDaoDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRYouDaoDict.m; sourceTree = "<group>"; };
 		57342B8E1DD88F4B002E3E8B /* ZRWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRWebView.h; sourceTree = "<group>"; };
 		57342B8F1DD88F4B002E3E8B /* ZRWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRWebView.m; sourceTree = "<group>"; };
+		573E61211DDCA919006CC5A3 /* BDSBuiltInPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSBuiltInPlayer.h; sourceTree = "<group>"; };
+		573E61221DDCA919006CC5A3 /* BDSSpeechSynthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSSpeechSynthesizer.h; sourceTree = "<group>"; };
+		573E61231DDCA919006CC5A3 /* BDSSpeechSynthesizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSSpeechSynthesizerDelegate.h; sourceTree = "<group>"; };
+		573E61241DDCA919006CC5A3 /* BDSSpeechSynthesizerErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSSpeechSynthesizerErrors.h; sourceTree = "<group>"; };
+		573E61251DDCA919006CC5A3 /* BDSSpeechSynthesizerParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSSpeechSynthesizerParams.h; sourceTree = "<group>"; };
+		573E61261DDCA919006CC5A3 /* BDSSynthesizerLogLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSSynthesizerLogLevel.h; sourceTree = "<group>"; };
+		573E61271DDCA919006CC5A3 /* libetts_device_simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libetts_device_simulator.a; sourceTree = "<group>"; };
+		573E61291DDCA995006CC5A3 /* English_Speech_Female.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = English_Speech_Female.dat; sourceTree = "<group>"; };
+		573E612B1DDCA9D4006CC5A3 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		573E612D1DDCA9E6006CC5A3 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		573E612F1DDCAA00006CC5A3 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		573E61311DDCAA0B006CC5A3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		573E61331DDCAA14006CC5A3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		573E61351DDCAA24006CC5A3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		573E61371DDCAA2B006CC5A3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		573E61391DDCAA5F006CC5A3 /* offline_engine_tmp_license.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = offline_engine_tmp_license.dat; sourceTree = "<group>"; };
+		573E613B1DDCAA9B006CC5A3 /* English_Speech_Male.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = English_Speech_Male.dat; sourceTree = "<group>"; };
+		573E613C1DDCAA9B006CC5A3 /* English_Text.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = English_Text.dat; sourceTree = "<group>"; };
+		573E613F1DDCAE86006CC5A3 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		573E61431DDCBBC3006CC5A3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		578915AF1CFFD3B90024C26A /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		578915B11D0078E70024C26A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		579CD6D31CE7030000EC337F /* WeiMei.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiMei.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -327,8 +361,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				573E61401DDCAE86006CC5A3 /* libiconv.tbd in Frameworks */,
+				573E61381DDCAA2B006CC5A3 /* AudioToolbox.framework in Frameworks */,
+				573E61361DDCAA24006CC5A3 /* AVFoundation.framework in Frameworks */,
+				573E61341DDCAA14006CC5A3 /* CoreTelephony.framework in Frameworks */,
+				573E61321DDCAA0B006CC5A3 /* SystemConfiguration.framework in Frameworks */,
+				573E61301DDCAA00006CC5A3 /* libstdc++.6.0.9.tbd in Frameworks */,
+				573E612E1DDCA9E6006CC5A3 /* libc++.tbd in Frameworks */,
+				573E612C1DDCA9D4006CC5A3 /* libz.1.2.5.tbd in Frameworks */,
 				578915B21D0078E70024C26A /* WebKit.framework in Frameworks */,
 				D5C6BF281869065D274C0767 /* libPods-WeiMei.a in Frameworks */,
+				573E61281DDCA919006CC5A3 /* libetts_device_simulator.a in Frameworks */,
 				578915B01CFFD3B90024C26A /* TencentOpenAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +395,24 @@
 				572C54701DDB431500F227CF /* ZRYouDaoDict.m */,
 			);
 			path = YouDaoDict;
+			sourceTree = "<group>";
+		};
+		573E61201DDCA919006CC5A3 /* BDSSpeechSynthesizer */ = {
+			isa = PBXGroup;
+			children = (
+				573E613B1DDCAA9B006CC5A3 /* English_Speech_Male.dat */,
+				573E613C1DDCAA9B006CC5A3 /* English_Text.dat */,
+				573E61391DDCAA5F006CC5A3 /* offline_engine_tmp_license.dat */,
+				573E61291DDCA995006CC5A3 /* English_Speech_Female.dat */,
+				573E61211DDCA919006CC5A3 /* BDSBuiltInPlayer.h */,
+				573E61221DDCA919006CC5A3 /* BDSSpeechSynthesizer.h */,
+				573E61231DDCA919006CC5A3 /* BDSSpeechSynthesizerDelegate.h */,
+				573E61241DDCA919006CC5A3 /* BDSSpeechSynthesizerErrors.h */,
+				573E61251DDCA919006CC5A3 /* BDSSpeechSynthesizerParams.h */,
+				573E61261DDCA919006CC5A3 /* BDSSynthesizerLogLevel.h */,
+				573E61271DDCA919006CC5A3 /* libetts_device_simulator.a */,
+			);
+			path = BDSSpeechSynthesizer;
 			sourceTree = "<group>";
 		};
 		579CD6CA1CE7030000EC337F = {
@@ -521,6 +582,7 @@
 		579CD7201CE7034E00EC337F /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				573E61431DDCBBC3006CC5A3 /* Launch Screen.storyboard */,
 				579CD7211CE7034E00EC337F /* AppDelegate.h */,
 				579CD7221CE7034E00EC337F /* AppDelegate.m */,
 				579CD82E1CE703F500EC337F /* Main.storyboard */,
@@ -753,6 +815,7 @@
 		579CD8231CE703A100EC337F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				573E61201DDCA919006CC5A3 /* BDSSpeechSynthesizer */,
 				572C546E1DDB430300F227CF /* YouDaoDict */,
 				579CD8241CE703A100EC337F /* Reachability */,
 				579CD8271CE703A100EC337F /* Tencent */,
@@ -780,6 +843,14 @@
 		FAEEC34983E4203CC9CE29ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				573E613F1DDCAE86006CC5A3 /* libiconv.tbd */,
+				573E61371DDCAA2B006CC5A3 /* AudioToolbox.framework */,
+				573E61351DDCAA24006CC5A3 /* AVFoundation.framework */,
+				573E61331DDCAA14006CC5A3 /* CoreTelephony.framework */,
+				573E61311DDCAA0B006CC5A3 /* SystemConfiguration.framework */,
+				573E612F1DDCAA00006CC5A3 /* libstdc++.6.0.9.tbd */,
+				573E612D1DDCA9E6006CC5A3 /* libc++.tbd */,
+				573E612B1DDCA9D4006CC5A3 /* libz.1.2.5.tbd */,
 				578915B11D0078E70024C26A /* WebKit.framework */,
 				578915AF1CFFD3B90024C26A /* TencentOpenAPI.framework */,
 				17EEB6D4A65EE5CF68CEA0FA /* libPods-WeiMei.a */,
@@ -852,6 +923,7 @@
 				579CD82F1CE703F500EC337F /* Main.storyboard in Resources */,
 				579CD8111CE7034E00EC337F /* index.js in Resources */,
 				579CD80F1CE7034E00EC337F /* showOriginalCode.html in Resources */,
+				573E613E1DDCAA9B006CC5A3 /* English_Text.dat in Resources */,
 				579CD7EB1CE7034E00EC337F /* t0188277f499a961a45.png in Resources */,
 				579CD7CB1CE7034E00EC337F /* AppIcon.png in Resources */,
 				579CD8001CE7034E00EC337F /* t01eaff9226a225448d.png in Resources */,
@@ -907,9 +979,11 @@
 				579CD7EC1CE7034E00EC337F /* t0190322c9a29d4996c.png in Resources */,
 				579CD7E71CE7034E00EC337F /* t0176af731d758e8c12.png in Resources */,
 				579CD7D21CE7034E00EC337F /* t01088e1da704d9b2bd.png in Resources */,
+				573E613D1DDCAA9B006CC5A3 /* English_Speech_Male.dat in Resources */,
 				579CD7E21CE7034E00EC337F /* t0153176221425946e6.png in Resources */,
 				579CD8101CE7034E00EC337F /* textSearch.js in Resources */,
 				579CD82A1CE703A100EC337F /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				573E61441DDCBBC3006CC5A3 /* Launch Screen.storyboard in Resources */,
 				579CD7DF1CE7034E00EC337F /* t01473bf024ad327780.png in Resources */,
 				579CD7F31CE7034E00EC337F /* t01aac883e2d868452e.png in Resources */,
 				579CD7E11CE7034E00EC337F /* t014e9bc05cb1463d7a.png in Resources */,
@@ -918,6 +992,7 @@
 				579CD7DA1CE7034E00EC337F /* t01286bbe6907f84790.png in Resources */,
 				579CD8131CE7034E00EC337F /* weather.js in Resources */,
 				579CD7F51CE7034E00EC337F /* t01ab246a123d4464ba.png in Resources */,
+				573E612A1DDCA995006CC5A3 /* English_Speech_Female.dat in Resources */,
 				579CD7D71CE7034E00EC337F /* t01258bdd09c643d2d0.png in Resources */,
 				579CD8071CE7034E00EC337F /* t01fe71241b64def6f9.png in Resources */,
 				579CD7D11CE7034E00EC337F /* t01074be507493006a2.png in Resources */,
@@ -927,6 +1002,7 @@
 				579CD80C1CE7034E00EC337F /* jquery.snippet.js in Resources */,
 				579CD7F11CE7034E00EC337F /* t01a105a1f80026c8cc.png in Resources */,
 				579CD7FC1CE7034E00EC337F /* t01cd6ac001ae5bc6bf.png in Resources */,
+				573E613A1DDCAA5F006CC5A3 /* offline_engine_tmp_license.dat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1140,7 +1216,10 @@
 				INFOPLIST_FILE = WeiMei/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WeiMei/Libraries/BDSSpeechSynthesizer",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lc++",
@@ -1173,7 +1252,10 @@
 				INFOPLIST_FILE = WeiMei/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WeiMei/Libraries/BDSSpeechSynthesizer",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lc++",

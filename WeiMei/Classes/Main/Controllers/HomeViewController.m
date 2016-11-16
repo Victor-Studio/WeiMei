@@ -25,6 +25,7 @@
 {
     [super viewDidAppear:animated];
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 }
 
 

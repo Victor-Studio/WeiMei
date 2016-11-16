@@ -22,6 +22,12 @@
 
 @interface ZRWebView : UIWebView
 
+@property (nonatomic, strong) UIView *webViewSuperView;
+
+@property (nonatomic, weak) id<ZRWebViewDelegate> translationDelegate;
+
+@property (nonatomic, strong) UIView *translateResultView;
+
 @end
 
 

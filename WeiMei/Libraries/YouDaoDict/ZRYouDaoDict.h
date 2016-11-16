@@ -40,8 +40,23 @@
 @end
 
 
-@interface ZRYouDaoDict : NSObject
 
-- (void)translate:(NSString *)queryText callback:(void(^)(ZRYouDaoModel *ydModel))callback;
+@protocol ZRYouDaoDictDelegate <NSObject>
+
+- (void)translationResult:(ZRYouDaoModel *)youdaoModel selectionText:(NSString *)selectionText;
 
 @end
+
+
+@interface ZRYouDaoDict : NSObject
+
+@property (nonatomic, weak) id<ZRYouDaoDictDelegate> delegate;
+
+- (void)translate:(NSString *)queryText;
+
+@end
+
+
+
+
+

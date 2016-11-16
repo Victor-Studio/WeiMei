@@ -28,7 +28,7 @@
 
 #define kWebViewWidth  [UIScreen mainScreen].bounds.size.width
 #define kWebViewHeight [UIScreen mainScreen].bounds.size.height
-#define IOS8x (DeviceVersion >= 8.0)
+#define IOS8x NO//(DeviceVersion >= 8.0)
  
 #define WebViewNav_TintColor [UIColor lightGrayColor]
 
