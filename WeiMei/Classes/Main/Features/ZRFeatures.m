@@ -9,6 +9,7 @@
 #import "ZRFeatures.h"
 #import "ZRCommonUtils.h"
 
+
 @interface ZRFeatures ()
 
 @end
@@ -41,6 +42,6 @@
     [self setFrame:rect];
     [self setContentSize:CGSizeMake(count * w, h)];
     self.pagingEnabled = YES;
-} 
+}
 
 @end

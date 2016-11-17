@@ -55,25 +55,26 @@
 #pragma mark - 配置基本信息
 - (void)configBasis
 {
-    //1.返回按钮
-    UIImage *backImage = [UIImage imageNamed:@"cc_webview_back"];
-    backImage = [backImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 25, 22)];
-    [backBtn setTintColor:MainColorRed];
-    [backBtn setBackgroundImage:backImage forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(backBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+//    //1.返回按钮
+//    UIImage *backImage = [UIImage imageNamed:@"cc_webview_back"];
+//    backImage = [backImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+//    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 25, 22)];
+//    [backBtn setTintColor:MainColorRed];
+//    [backBtn setBackgroundImage:backImage forState:UIControlStateNormal];
+//    [backBtn addTarget:self action:@selector(backBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     
     //2.title
-    self.navigationItem.title = @"控制台";
+    self.title = @"控制台";
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     
     [self.view setBackgroundColor:kColorBlack];
 }
 
-- (void)backBtnPressed
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+//- (void)backBtnPressed
+//{
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 - (void)loadData
 {

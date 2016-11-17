@@ -13,9 +13,9 @@
 #import "ZRRegularExpression.h"
 #import "ZRAlertController.h"
 #import "ZRToast.h"
-#import "ZRBookmarkNavigation.h"
+//#import "ZRBookmarkNavigation.h"
 
-@interface ZRBookmarkController ()<ZRBookmarkNavigationDelegate>
+@interface ZRBookmarkController ()/*<ZRBookmarkNavigationDelegate>*/
 
 /* 临时存储数据集合 */
 @property (nonatomic,strong) NSMutableArray *arrayData;
@@ -36,7 +36,7 @@
 @property (nonatomic,assign) CGFloat selectedSegmentIndex;
 
 /* 书签或者历史记录的导航栏 */
-@property (nonatomic,strong) ZRBookmarkNavigation *bookmarkNavigation;
+//@property (nonatomic,strong) ZRBookmarkNavigation *bookmarkNavigation;
 @end
 
 @implementation ZRBookmarkController
@@ -84,64 +84,85 @@
 }
 
 /* 导航栏 */
-- (ZRBookmarkNavigation *)bookmarkNavigation
-{
-    if(!_bookmarkNavigation){
-        CGRect rect = self.view.frame;
-        rect.size.height += rect.origin.y;
-        rect.origin.y = 0;
-        self.view.frame = rect;
-        ZRBookmarkNavigation *bookmarkNav = [[ZRBookmarkNavigation alloc] initWithFrame:rect];
-        bookmarkNav.delegate = self;
-        bookmarkNav.alpha = 0.95;
-        _bookmarkNavigation  = bookmarkNav;
-    }
-    return _bookmarkNavigation;
-}
+//- (ZRBookmarkNavigation *)bookmarkNavigation
+//{
+//    if(!_bookmarkNavigation){
+//        CGRect rect = self.view.frame;
+//        rect.size.height += rect.origin.y;
+//        rect.origin.y = 0;
+//        self.view.frame = rect;
+//        ZRBookmarkNavigation *bookmarkNav = [[ZRBookmarkNavigation alloc] initWithFrame:rect];
+//        bookmarkNav.delegate = self;
+//        bookmarkNav.alpha = 0.95;
+//        _bookmarkNavigation  = bookmarkNav;
+//    }
+//    return _bookmarkNavigation;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //右上角清空按钮
+    [self addRightButton];
+    
+    //中间的UISegment
+    UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:@[@"历史记录",@"书签"]];
+    segment.selectedSegmentIndex = 0;
+    segment.tintColor = [UIColor whiteColor];
+    [segment addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
+    self.navigationItem.titleView = segment;
 
-    [self configAnimationShow]; 
+//    [self configAnimationShow];
 }
 
-/* 动画展示书签页 */
-- (void)configAnimationShow
+- (void)addRightButton
 {
-    CGRect rect = self.view.frame;
-    rect.origin.x = rect.size.width;
-    self.view.frame = rect;
-    
-    [UIView animateWithDuration:0.5f animations:^{
-        CGRect rect = self.view.frame;
-        rect.origin.x = 0;
-        self.view.frame = rect;
-    }];
-    
-     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"清空" style:UIBarButtonItemStyleDone target:self action:@selector(bookmarkButtonClear)];
 }
+
+- (void)removeRightButton
+{
+    self.navigationItem.rightBarButtonItem = nil;
+}
+
+///* 动画展示书签页 */
+//- (void)configAnimationShow
+//{
+//    CGRect rect = self.view.frame;
+//    rect.origin.x = rect.size.width;
+//    self.view.frame = rect;
+//    
+//    [UIView animateWithDuration:0.5f animations:^{
+//        CGRect rect = self.view.frame;
+//        rect.origin.x = 0;
+//        self.view.frame = rect;
+//    }];
+//    
+//     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//}
 
 #pragma mark - ZRBookmarkNavigationDelegate代理事件
 /* 以前当前控制器 */
-- (void)bookmarkBackLastController
-{
-    [UIView animateWithDuration:0.3f animations:^{
-        CGRect rect = self.view.frame;
-        rect.origin.x = rect.size.width;
-        self.view.frame = rect;
-    } completion:^(BOOL finished) {
-        if(finished){
-            [self.view removeFromSuperview];
-        }
-    }];
-}
+//- (void)bookmarkBackLastController
+//{
+//    [UIView animateWithDuration:0.3f animations:^{
+//        CGRect rect = self.view.frame;
+//        rect.origin.x = rect.size.width;
+//        self.view.frame = rect;
+//    } completion:^(BOOL finished) {
+//        if(finished){
+//            [self.view removeFromSuperview];
+//        }
+//    }];
+//}
 
 /* 历史记录清空 */
-- (void)bookmarkClearButton
+- (void)bookmarkButtonClear
 {
     if(self.isHistorySelected && self.arrayDataHistory.count > 0){
         typeof(self) weakSelf = self;
-        [ZRAlertController alertView:self message:@"是否清空全部记录？" handler:^{
+        ZRAlertController *alert = [ZRAlertController defaultAlert];
+        [alert alertShowWithTitle:@"" message:@"是否清空全部记录？" okayButton:@"好的" completion:^{
             [[[ZRHistoryPage alloc] init] clearAllHistory];
             [ZRToast toastSuccess:weakSelf.navigationController];
             weakSelf.arrayData = nil;
@@ -158,26 +179,31 @@
             [weakSelf.view addSubview:button];
             weakSelf.tipbutton = button;
             
-            [weakSelf.bookmarkNavigation setClearButton:YES];
+            //            [weakSelf.bookmarkNavigation setClearButton:YES];
         }];
     }
 }
 
 /* 中间的UISegment切换 */
-- (void)bookmarkSegmentChange:(UISegmentedControl *)segment
+- (void)segmentChanged:(UISegmentedControl *)segment
 {
     self.selectedSegmentIndex = segment.selectedSegmentIndex;
     if(segment.selectedSegmentIndex == 0){
         self.isHistorySelected = YES;
         if(self.arrayDataHistory.count > 0){
-            [self.bookmarkNavigation setClearButton:NO];
+//            [self.bookmarkNavigation setClearButton:NO];
+            [self addRightButton];
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        } else {
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         }
         
         self.arrayData = self.arrayDataHistory;
         [self.tableView reloadData];
     } else {
         self.isHistorySelected = NO;
-         [self.bookmarkNavigation setClearButton:YES];
+//         [self.bookmarkNavigation setClearButton:YES];
+        [self removeRightButton];
         
         self.arrayData = self.arrayDataBookmark;
         [self.tableView reloadData];
@@ -238,7 +264,8 @@
         [mstr appendString:content];
         [[ZRWebViewController defaultWebViewController] refreshWebViewWithUrl:mstr];
     }
-    [self.view removeFromSuperview];
+//    [self.view removeFromSuperview];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -261,14 +288,14 @@
     return @"删除";
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return ZRBookmarkNavigationHeight;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return ZRBookmarkNavigationHeight;
+//}
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    return self.bookmarkNavigation;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    return self.bookmarkNavigation;
+//}
 
 @end

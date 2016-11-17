@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WeiMei/Classes/Main/Controllers/ZRWebViewController.m"
-            timestampString = "500787000.436777"
+            filePath = "WeiMei/Classes/Main/Controllers/HomeViewController.m"
+            timestampString = "501073728.551777"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "-refreshWebViewWithUrl:"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-nextFeature:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,29 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WeiMei/Classes/Main/Views/ZRWebView.m"
-            timestampString = "500789354.895741"
+            filePath = "WeiMei/Classes/Main/Controllers/HomeViewController.m"
+            timestampString = "501073728.551777"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-copying:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeiMei/Classes/Main/Views/ZRWebView.m"
-            timestampString = "500789347.839296"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "-translate:"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "-nextFeature:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -49,10 +49,11 @@
 {
     CGFloat w = 80;
     CGFloat x = (_tableView.frame.size.width - w) / 2;
-    UIImageView *iImg = [[UIImageView alloc] initWithFrame:CGRectMake(x, 80, w, w)];
+    UIImageView *iImg = [[UIImageView alloc] initWithFrame:CGRectMake(x, -70, w, w)];
     [iImg setImage:[UIImage imageNamed:@"AppIcon"]];
     [iImg.layer setCornerRadius:15];
-    [self.view addSubview:iImg];
+    iImg.layer.masksToBounds = YES;
+    [_tableView addSubview:iImg];
 }
 
 //初始化UITableView
@@ -70,17 +71,8 @@
 #pragma mark - 配置基本信息
 - (void)configBasis
 {
-    //1.返回按钮
-    UIImage *backImage = [UIImage imageNamed:@"cc_webview_back"];
-    backImage = [backImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 25, 22)];
-    [backBtn setTintColor:MainColorRed];
-    [backBtn setBackgroundImage:backImage forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(backBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-    
-    //2.title
-    self.navigationItem.title = @"设置";
+    self.title = @"设置";
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
 }
 
 - (void)backBtnPressed

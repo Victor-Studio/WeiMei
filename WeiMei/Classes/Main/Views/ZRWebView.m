@@ -174,7 +174,7 @@
     NSInteger sentenceID = [[BDSSpeechSynthesizer sharedInstance] speakSentence:word withError:&speakerr];
     if (sentenceID == -1) {
         /*错误*/
-        NSLog(@"百度发声错误！ error = %@", speakerr);
+        NSLog(@"百度语音合成错误！ error = %@", speakerr);
     }
 }
 

@@ -51,13 +51,11 @@
 		579CD7BE1CE7034E00EC337F /* ZRQQLoginSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD7261CE7034E00EC337F /* ZRQQLoginSingleton.m */; };
 		579CD7BF1CE7034E00EC337F /* UIImage+ZRExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD72A1CE7034E00EC337F /* UIImage+ZRExtension.m */; };
 		579CD7C01CE7034E00EC337F /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD72C1CE7034E00EC337F /* UIView+Toast.m */; };
-		579CD7C11CE7034E00EC337F /* ZRAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD72E1CE7034E00EC337F /* ZRAlertController.m */; };
 		579CD7C21CE7034E00EC337F /* ZRBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD7301CE7034E00EC337F /* ZRBookmark.m */; };
 		579CD7C31CE7034E00EC337F /* ZRCommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD7321CE7034E00EC337F /* ZRCommonUtils.m */; };
 		579CD7C41CE7034E00EC337F /* ZRDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD7341CE7034E00EC337F /* ZRDate.m */; };
 		579CD7C51CE7034E00EC337F /* ZRFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD7361CE7034E00EC337F /* ZRFMDB.m */; };
 		579CD7C61CE7034E00EC337F /* ZRHistoryPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD7381CE7034E00EC337F /* ZRHistoryPage.m */; };
-		579CD7C71CE7034E00EC337F /* ZRQRCodeScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD73A1CE7034E00EC337F /* ZRQRCodeScanController.m */; };
 		579CD7C81CE7034E00EC337F /* ZRRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD73C1CE7034E00EC337F /* ZRRegularExpression.m */; };
 		579CD7C91CE7034E00EC337F /* ZRScreenCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD73E1CE7034E00EC337F /* ZRScreenCapture.m */; };
 		579CD7CA1CE7034E00EC337F /* ZRToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD7401CE7034E00EC337F /* ZRToast.m */; };
@@ -149,6 +147,7 @@
 		579CD8291CE703A100EC337F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 579CD8261CE703A100EC337F /* Reachability.m */; };
 		579CD82A1CE703A100EC337F /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 579CD8281CE703A100EC337F /* TencentOpenApi_IOS_Bundle.bundle */; };
 		579CD82F1CE703F500EC337F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 579CD82E1CE703F500EC337F /* Main.storyboard */; };
+		90D46D2D1DDD97530075FF71 /* ZRQRCodeScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D46D2C1DDD97530075FF71 /* ZRQRCodeScanView.m */; };
 		D5C6BF281869065D274C0767 /* libPods-WeiMei.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17EEB6D4A65EE5CF68CEA0FA /* libPods-WeiMei.a */; };
 /* End PBXBuildFile section */
 
@@ -232,8 +231,6 @@
 		579CD72A1CE7034E00EC337F /* UIImage+ZRExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZRExtension.m"; sourceTree = "<group>"; };
 		579CD72B1CE7034E00EC337F /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		579CD72C1CE7034E00EC337F /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
-		579CD72D1CE7034E00EC337F /* ZRAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRAlertController.h; sourceTree = "<group>"; };
-		579CD72E1CE7034E00EC337F /* ZRAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRAlertController.m; sourceTree = "<group>"; };
 		579CD72F1CE7034E00EC337F /* ZRBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRBookmark.h; sourceTree = "<group>"; };
 		579CD7301CE7034E00EC337F /* ZRBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRBookmark.m; sourceTree = "<group>"; };
 		579CD7311CE7034E00EC337F /* ZRCommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRCommonUtils.h; sourceTree = "<group>"; };
@@ -244,8 +241,6 @@
 		579CD7361CE7034E00EC337F /* ZRFMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRFMDB.m; sourceTree = "<group>"; };
 		579CD7371CE7034E00EC337F /* ZRHistoryPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRHistoryPage.h; sourceTree = "<group>"; };
 		579CD7381CE7034E00EC337F /* ZRHistoryPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRHistoryPage.m; sourceTree = "<group>"; };
-		579CD7391CE7034E00EC337F /* ZRQRCodeScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRQRCodeScanController.h; sourceTree = "<group>"; };
-		579CD73A1CE7034E00EC337F /* ZRQRCodeScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRQRCodeScanController.m; sourceTree = "<group>"; };
 		579CD73B1CE7034E00EC337F /* ZRRegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRRegularExpression.h; sourceTree = "<group>"; };
 		579CD73C1CE7034E00EC337F /* ZRRegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRRegularExpression.m; sourceTree = "<group>"; };
 		579CD73D1CE7034E00EC337F /* ZRScreenCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRScreenCapture.h; sourceTree = "<group>"; };
@@ -353,6 +348,8 @@
 		579CD8281CE703A100EC337F /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		579CD82C1CE703BC00EC337F /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		579CD82E1CE703F500EC337F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		90D46D2B1DDD97530075FF71 /* ZRQRCodeScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRQRCodeScanView.h; sourceTree = "<group>"; };
+		90D46D2C1DDD97530075FF71 /* ZRQRCodeScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRQRCodeScanView.m; sourceTree = "<group>"; };
 		B80E4CCA573DEAF9FE046522 /* Pods-WeiMei.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiMei.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiMei/Pods-WeiMei.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -515,6 +512,7 @@
 		579CD7011CE7034E00EC337F /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				90D46D2A1DDD97530075FF71 /* QRCode */,
 				579CD7021CE7034E00EC337F /* Controllers */,
 				579CD7091CE7034E00EC337F /* Features */,
 				579CD70E1CE7034E00EC337F /* Models */,
@@ -617,8 +615,6 @@
 				579CD72A1CE7034E00EC337F /* UIImage+ZRExtension.m */,
 				579CD72B1CE7034E00EC337F /* UIView+Toast.h */,
 				579CD72C1CE7034E00EC337F /* UIView+Toast.m */,
-				579CD72D1CE7034E00EC337F /* ZRAlertController.h */,
-				579CD72E1CE7034E00EC337F /* ZRAlertController.m */,
 				579CD72F1CE7034E00EC337F /* ZRBookmark.h */,
 				579CD7301CE7034E00EC337F /* ZRBookmark.m */,
 				579CD7311CE7034E00EC337F /* ZRCommonUtils.h */,
@@ -629,8 +625,6 @@
 				579CD7361CE7034E00EC337F /* ZRFMDB.m */,
 				579CD7371CE7034E00EC337F /* ZRHistoryPage.h */,
 				579CD7381CE7034E00EC337F /* ZRHistoryPage.m */,
-				579CD7391CE7034E00EC337F /* ZRQRCodeScanController.h */,
-				579CD73A1CE7034E00EC337F /* ZRQRCodeScanController.m */,
 				579CD73B1CE7034E00EC337F /* ZRRegularExpression.h */,
 				579CD73C1CE7034E00EC337F /* ZRRegularExpression.m */,
 				579CD73D1CE7034E00EC337F /* ZRScreenCapture.h */,
@@ -840,6 +834,15 @@
 			path = Tencent;
 			sourceTree = "<group>";
 		};
+		90D46D2A1DDD97530075FF71 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				90D46D2B1DDD97530075FF71 /* ZRQRCodeScanView.h */,
+				90D46D2C1DDD97530075FF71 /* ZRQRCodeScanView.m */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
 		FAEEC34983E4203CC9CE29ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -865,12 +868,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 579CD6EA1CE7030000EC337F /* Build configuration list for PBXNativeTarget "WeiMei" */;
 			buildPhases = (
-				78A0BC0485EF8DBCAB63EAA1 /* 📦 Check Pods Manifest.lock */,
+				78A0BC0485EF8DBCAB63EAA1 /* [CP] Check Pods Manifest.lock */,
 				579CD6CF1CE7030000EC337F /* Sources */,
 				579CD6D01CE7030000EC337F /* Frameworks */,
 				579CD6D11CE7030000EC337F /* Resources */,
-				01408F9EC22923868C71DD58 /* 📦 Embed Pods Frameworks */,
-				526DD0514474F9673CB2528B /* 📦 Copy Pods Resources */,
+				01408F9EC22923868C71DD58 /* [CP] Embed Pods Frameworks */,
+				526DD0514474F9673CB2528B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -893,7 +896,7 @@
 					579CD6D21CE7030000EC337F = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = B873AZ7BS6;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1009,14 +1012,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01408F9EC22923868C71DD58 /* 📦 Embed Pods Frameworks */ = {
+		01408F9EC22923868C71DD58 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
@@ -1024,14 +1027,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeiMei/Pods-WeiMei-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		526DD0514474F9673CB2528B /* 📦 Copy Pods Resources */ = {
+		526DD0514474F9673CB2528B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
@@ -1039,19 +1042,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeiMei/Pods-WeiMei-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		78A0BC0485EF8DBCAB63EAA1 /* 📦 Check Pods Manifest.lock */ = {
+		78A0BC0485EF8DBCAB63EAA1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1065,10 +1068,10 @@
 				579CD7C91CE7034E00EC337F /* ZRScreenCapture.m in Sources */,
 				579CD8191CE7034E00EC337F /* ZRPageManageController.m in Sources */,
 				579CD8151CE7034E00EC337F /* ZRHomeNavViewController.m in Sources */,
-				579CD7C71CE7034E00EC337F /* ZRQRCodeScanController.m in Sources */,
 				579CD7C01CE7034E00EC337F /* UIView+Toast.m in Sources */,
 				579CD8171CE7034E00EC337F /* ZRHomeScrollView.m in Sources */,
 				579CD7C81CE7034E00EC337F /* ZRRegularExpression.m in Sources */,
+				90D46D2D1DDD97530075FF71 /* ZRQRCodeScanView.m in Sources */,
 				579CD7AC1CE7034E00EC337F /* ZROriginalCodeController.m in Sources */,
 				579CD7BA1CE7034E00EC337F /* ZRWebButton.m in Sources */,
 				572C54711DDB431500F227CF /* ZRYouDaoDict.m in Sources */,
@@ -1081,7 +1084,6 @@
 				579CD7C31CE7034E00EC337F /* ZRCommonUtils.m in Sources */,
 				579CD7A91CE7034E00EC337F /* ZRDebugConsoleController.m in Sources */,
 				579CD81A1CE7034E00EC337F /* ZRQuickViewController.m in Sources */,
-				579CD7C11CE7034E00EC337F /* ZRAlertController.m in Sources */,
 				579CD7AB1CE7034E00EC337F /* ZRNavController.m in Sources */,
 				579CD7B01CE7034E00EC337F /* HomeViewController.m in Sources */,
 				579CD7B71CE7034E00EC337F /* ZRAllMenus.m in Sources */,
@@ -1208,6 +1210,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = B873AZ7BS6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1232,7 +1235,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoruigegestudio.weimeibrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c3cad45e-356f-419c-9854-fa2103fd2652";
+				PROVISIONING_PROFILE_SPECIFIER = weimeibrowser_distribution_profile;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1242,8 +1246,9 @@
 			baseConfigurationReference = 569C640F51C7F8470FBEC4C7 /* Pods-WeiMei.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: qiang zhang rui zhang (B873AZ7BS6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: qiang zhang rui zhang (B873AZ7BS6)";
+				DEVELOPMENT_TEAM = B873AZ7BS6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1268,7 +1273,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoruigegestudio.weimeibrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c3cad45e-356f-419c-9854-fa2103fd2652";
+				PROVISIONING_PROFILE_SPECIFIER = weimeibrowser_distribution_profile;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

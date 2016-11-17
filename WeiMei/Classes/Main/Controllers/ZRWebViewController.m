@@ -68,9 +68,6 @@ ZRAllMenusDelegate>
 
 @property (nonatomic, strong) UISearchBar *titleSearchBar;
 
-/* 书签和历史记录控制器 */
-@property (nonatomic,strong) ZRBookmarkController *bookmarkController;
-
 
 /* 圆圈进度条 */
 @property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
@@ -146,9 +143,9 @@ static ZRWebViewController *webViewController = nil;
         webViewController.title = title;
 
         ZRWebNavigationController *nav = [[ZRWebNavigationController alloc] initWithRootViewController:webViewController];
-        nav.modalPresentationStyle = UIModalPresentationPageSheet;
         
         //跳转控制器
+//        [((UINavigationController *)contro) pushViewController:webViewController animated:YES];
         [[[[UIApplication sharedApplication].windows objectAtIndex:0] rootViewController] presentViewController:nav animated:NO completion:nil];
     }
 }
@@ -673,37 +670,28 @@ static ZRWebViewController *webViewController = nil;
             else urlStr = self.webView.request.URL.absoluteString;
             if (urlStr.length > 0) {
                 [[UIPasteboard generalPasteboard] setString:urlStr];
-                [ZRAlertController alertView:self title:@"提示" message:[NSString stringWithFormat:@"复制成功！网址：%@", urlStr] handler:nil];
+                ZRAlertController *alert = [ZRAlertController defaultAlert];
+                [alert alertShowWithTitle:@"提示" message:[NSString stringWithFormat:@"复制成功！网址：%@", urlStr] okayButton:@"好的" completion:^{
+                }];
             }
         } else if([model.controller isEqualToString:@"sharing"]){
             [self activityShareComponents];
         } else if([model.controller isEqualToString:@"book mark"]){
             ZRBookmarkController *bookmark = [[ZRBookmarkController alloc] init];
-            [self.view addSubview:bookmark.view];
-            self.bookmarkController = bookmark;
+            [self.navigationController pushViewController:bookmark animated:YES];
         }else if([model.controller isEqualToString:@"ZRDebugConsoleController"]){
-            ZRNavController *nav = [[ZRNavController alloc ] initWithRootViewController:[[NSClassFromString(model.controller) alloc] init]];;
-            [self presentViewController:nav animated:YES completion:nil];
+            UIViewController *DebugConsoleVC = [[NSClassFromString(model.controller) alloc] init];
+            [self.navigationController pushViewController:DebugConsoleVC animated:YES];
+        } else if([model.controller isEqualToString:@"ZROriginalCodeController"]) {
+            ZROriginalCodeController *originalVC = [[NSClassFromString(model.controller) alloc] init];
+            NSString *urlStr = @"";
+            if (IOS8x) urlStr = self.wkWebView.URL.absoluteString;
+            else urlStr = self.webView.request.URL.absoluteString;
+            originalVC.urlString = urlStr;
+            [self.navigationController pushViewController:originalVC animated:YES];
         } else {
             id controller = [[NSClassFromString(model.controller) alloc] init];
-            
-            ZRNavController *nav = [[ZRNavController alloc ] initWithRootViewController:controller];;
-
-            if([model.controller isEqualToString:@"ZROriginalCodeController"]){
-                //查看源代码
-                ZROriginalCodeController *original = (ZROriginalCodeController *)controller;
-                NSString *urlStr = @"";
-                if (IOS8x) urlStr = self.wkWebView.URL.absoluteString;
-                else urlStr = self.webView.request.URL.absoluteString;
-                original.urlString = urlStr;
-                nav = [[ZRNavController alloc ] initWithRootViewController:original];
-                [self presentViewController:nav animated:YES completion:nil];
-            }else if([model.controller isEqualToString:@"ZRDebugAllRequestController"]){
-                //网页所有请求
-                [self presentViewController:nav animated:YES completion:nil];
-            }else{
-                [self showControllerByAnimation:nav];
-            }
+            [self.navigationController pushViewController:controller animated:YES];
         }
     }
 }
@@ -771,29 +759,7 @@ static ZRWebViewController *webViewController = nil;
     NSArray *activityItems = @[textToShare, imageToShare, urlToShare];
     UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     [self presentViewController:activityView animated:YES completion:nil];
-    
-    
-    //友盟分享组API
-//    注意：分享到微信好友、微信朋友圈、微信收藏、QQ空间、QQ好友、来往好友、来往朋友圈、易信好友、易信朋友圈、Facebook、Twitter、Instagram等平台需要参考各自的集成方法
-//    [UMSocialSnsService presentSnsIconSheetView:self
-//                                         appKey:@"56e6368ce0f55a7ad10008f4"
-//                                      shareText:@"唯美浏览器，为用户畅想浏览你的人生~~~ 为开发者，尽情的调试前端利器；还等什么了？动手去下载吧！~ https://itunes.apple.com/cn/app/wei-mei-liu-lan-qi/id1067649034?l=en&mt=8"
-//                                     shareImage:[UIImage imageNamed:@"AppIcon"]
-//                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToWechatSession,UMShareToQQ,UMShareToQzone,UMShareToRenren, UMShareToDouban, UMShareToEmail, UMShareToSms,nil]
-//                                       delegate:self];
-    
-    //tencent41E0D236
 }
-
-//-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
-//{
-//    //根据`responseCode`得到发送结果,如果分享成功
-//    if(response.responseCode == UMSResponseCodeSuccess)
-//    {
-//        //得到分享到的微博平台名
-//        NSLog(@"share to sns name is %@",[[response.data allKeys] objectAtIndex:0]);
-//    }
-//}
 
 /* 显示首页 */
 - (void)webTabbarShowHome{

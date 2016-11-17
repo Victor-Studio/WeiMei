@@ -67,7 +67,7 @@
 {
     CGFloat w = frame.size.width;
     CGFloat h = frame.size.height;
-    CGFloat y = HomeScrollViewTopHeight;
+    CGFloat y = 44;//HomeScrollViewTopHeight;
     
     self.contentSize = CGSizeMake(w * 2, 0);
     self.frame = frame;

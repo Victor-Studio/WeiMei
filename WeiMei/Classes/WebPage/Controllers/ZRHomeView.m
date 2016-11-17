@@ -9,8 +9,11 @@
 #import "ZRHomeView.h"
 #import "ZRHomeScrollView.h"
 #import "ZRHomePageControl.h"
-#import "ZRQRCodeScanController.h"
+#import "ZRQRCodeScanView.h"
 #import "ZRSearchHitsViewController.h"
+#import "ZRRegularExpression.h"
+#import "ZRWebViewController.h"
+#import "ZRWebNavigation.h"
 //#import "ZRWeatherController.h"
 
 @interface ZRHomeView ()
@@ -28,7 +31,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
+    self.view.backgroundColor = MainColor;
     
     //1.添加控制器
     [self addHomeScroll];
@@ -56,6 +60,15 @@
     if (shared.statusBarStyle == UIStatusBarStyleLightContent) {
         [shared setStatusBarStyle:UIStatusBarStyleDefault];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    self.navigationItem.hidesBackButton = YES;
+    self.navigationController.navigationBar.hidden = YES;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 }
 
 #pragma mark - 1.添加控制器
@@ -183,10 +196,12 @@
 //    CGFloat qrX = lineX - qrW - marginBar * 1.5 ;
 //    CGFloat qrY = marginBar;
 //    CGRect qrr = CGRectMake(qrX, qrY, qrW, qrH)
-    UIButton *qrcodeBtn = [[UIButton alloc] initWithFrame:qrRect];
-    [qrcodeBtn setBackgroundImage:[UIImage imageNamed:@"qrcode_entry_btn"] forState:UIControlStateNormal];
-    [qrcodeBtn addTarget:self action:@selector(qrSwip:) forControlEvents:UIControlEventTouchUpInside];
-    [searView addSubview:qrcodeBtn];
+
+    
+//    UIButton *qrcodeBtn = [[UIButton alloc] initWithFrame:qrRect];
+//    [qrcodeBtn setBackgroundImage:[UIImage imageNamed:@"qrcode_entry_btn"] forState:UIControlStateNormal];
+//    [qrcodeBtn addTarget:self action:@selector(qrSwip:) forControlEvents:UIControlEventTouchUpInside];
+//    [searView addSubview:qrcodeBtn];
 
     //提示文字
     CGFloat searLX = searchIcon.frame.size.width + marginBar * 2;
@@ -213,8 +228,16 @@
 #pragma mark - 二维码扫描
 - (void)qrSwip:(UIButton *)button
 {
-    ZRQRCodeScanController *qrcode = [[ZRQRCodeScanController alloc] init];
-    [self presentViewController:qrcode animated:YES completion:nil];
+    self.navigationController.navigationBar.hidden = NO;
+    ZRAlertController *alert = [ZRAlertController defaultAlert];
+    ZRQRCodeScanView *qrcode = [[ZRQRCodeScanView alloc] init];
+    [qrcode openQRCodeScan:self completion:^(NSString *responseData, int statusCode) {
+        if([ZRRegularExpression isURL:responseData]){
+            [[ZRWebViewController defaultWebViewController] refreshWebViewWithUrl:responseData];
+        } else {
+            [alert alertShowWithTitle:@"" message:[NSString stringWithFormat:@"结果是:%@", responseData] okayButton:@"Okay" completion:nil];
+        }
+    }];
 }
 
 //#pragma mark - 语音搜索

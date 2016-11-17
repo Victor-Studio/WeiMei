@@ -2,18 +2,24 @@ PODS:
   - FMDB (2.6):
     - FMDB/standard (= 2.6)
   - FMDB/standard (2.6)
-  - SDWebImage (3.7.6):
-    - SDWebImage/Core (= 3.7.6)
-  - SDWebImage/Core (3.7.6)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - ZRAlertController (2.3.3)
+  - ZRQRCodeViewController (3.1.5)
 
 DEPENDENCIES:
   - FMDB (= 2.6)
-  - SDWebImage (= 3.7.6)
+  - SDWebImage (~> 3.8)
+  - ZRAlertController (~> 2.3.3)
+  - ZRQRCodeViewController (~> 3.1.5)
 
 SPEC CHECKSUMS:
   FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
-  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  ZRAlertController: 1210671e7336ccd30aee86c0ac8ed98f84fa5333
+  ZRQRCodeViewController: 5bafe127c0b09a65b88db5b05b45ce72f2b3e5b0
 
-PODFILE CHECKSUM: aebe34c7682d0a418c6276badcd4d48ec0028c80
+PODFILE CHECKSUM: ed95bf7f4531d749481a50c5f2ff29d913a6cde2
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.1.0

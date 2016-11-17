@@ -6,23 +6,33 @@
 	<dict>
 		<key>FMDB.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-WeiMei.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ZRAlertController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ZRQRCodeViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>992C0C5CE3744B42717AFA69BA2EA3D0</key>
+		<key>48D477DB0B8FC0DB8E39B3FDA947D56C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -32,7 +42,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FC552180C1FF8275AD17F75B36C5A92F</key>
+		<key>C70C6A8A70CB6F95DCD55E5E3681B423</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0C6E07697EF4A11FA1DC8828AFF2100</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F062FB0A149E7496A82FDAFE18C8746B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

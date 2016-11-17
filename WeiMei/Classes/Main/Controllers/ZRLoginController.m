@@ -125,11 +125,12 @@
     if ([dic[kCells] isEqualToString:kCellLogin]) {
         [self qqlogin];
     } else if ([dic[kCells] isEqualToString:kCellExitLogin]){
-        [ZRAlertController alertView:self message:@"确定要退出吗？" handler:^{
+        ZRAlertController *alert = [ZRAlertController defaultAlert];
+        [alert alertShowWithTitle:@"提示" message:@"全部清除成功！" okayButton:@"好的" completion:^{
             [_tencentOAuth logout:self];
             [[ZRQQLoginSingleton defaultQQLoginSingleton] dispose];
             [self loadArrayData];
-            [_tableView reloadData]; 
+            [_tableView reloadData];
         }];
     }
 }
@@ -185,7 +186,9 @@
         qqlogin.nickName = nickname;
         [qqlogin writeObjectToFile];
     } else {
-        [ZRAlertController alertView:self message:@"登录失败" handler:nil];
+        ZRAlertController *alert = [ZRAlertController defaultAlert];
+        [alert alertShowWithTitle:@"" message:@"登录失败" okayButton:@"好的" completion:^{
+        }];
     }
     
     [self loadArrayData];
@@ -195,7 +198,9 @@
 //非网络错误导致登录失败
 - (void)tencentDidNotLogin:(BOOL)cancelled
 {
-    [ZRAlertController alertView:self message:@"非网络错误导致登录失败" handler:nil];
+    ZRAlertController *alert = [ZRAlertController defaultAlert];
+    [alert alertShowWithTitle:@"" message:@"非网络错误导致登录失败" okayButton:@"好的" completion:^{
+    }];
 }
 
 //登出
@@ -207,7 +212,9 @@
 //网络错误导致登录失败
 - (void)tencentDidNotNetWork
 {
-    [ZRAlertController alertView:self message:@"网络错误导致登录失败" handler:nil];
+    ZRAlertController *alert = [ZRAlertController defaultAlert];
+    [alert alertShowWithTitle:@"" message:@"网络错误导致登录失败" okayButton:@"好的" completion:^{
+    }]; 
 }
 
 

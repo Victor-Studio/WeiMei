@@ -207,7 +207,8 @@
 - (void)clearHistoryData
 {
     [[[ZRHistoryPage alloc] init] clearAllHistory];
-    [ZRAlertController alertView:self title:@"提示" message:@"全部清除成功！" handler:^{
+    ZRAlertController *alert = [ZRAlertController defaultAlert];
+    [alert alertShowWithTitle:@"提示" message:@"全部清除成功！" okayButton:@"好的" completion:^{
         self.arrayData = nil;
         [self.searchHitsTable reloadData];
     }];

@@ -44,7 +44,7 @@
                   ];
     if( ret != nil) {
         /*错误*/
-        NSLog(@"百度语音合成相关数据错误！ error = %@", ret);
+        NSLog(@"百度语音合成相关数据配置错误！ error = %@", ret);
     }
 
     
