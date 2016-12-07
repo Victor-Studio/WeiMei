@@ -39,7 +39,7 @@
     [self addHomeView];
     
     //2.添加特性
-//    if(![[[ZRFeaturePreference alloc] init] read])
+    if(![[[ZRFeaturePreference alloc] init] read])
         [self addFeatures];
  
 }

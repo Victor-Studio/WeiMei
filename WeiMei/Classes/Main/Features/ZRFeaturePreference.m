@@ -8,7 +8,7 @@
 
 #import "ZRFeaturePreference.h"
 
-static NSString *IsViewedFeatures = @"isViewedFeatures";
+static NSString *IsViewedFeatures = @"isViewedZRFeatures";
 
 @implementation ZRFeaturePreference
 
