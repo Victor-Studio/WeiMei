@@ -60,7 +60,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>3.0</string>
+	<string>3.1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>wechat</string>
@@ -228,7 +228,9 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>请允许唯美浏览器访问您的相机，以获得最佳体验</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>请允许唯美浏览器访问您的相册，以获得最佳体验</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
